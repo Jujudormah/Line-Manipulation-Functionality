@@ -1,0 +1,83 @@
+<!doctype html>
+<!-- Figure out why stylesheet is not being applied. Reason is in PHP bookmarks in Google
+     Chrome. -->
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Arrival Create</title>
+    <style>
+        html,body {
+            height: 100%;
+            width:100%;
+            margin: 0;
+        }
+
+        body {
+            background-color: #D6D6D6;
+        }
+
+        .center {
+            margin: 0 auto;
+        }
+
+        form {
+            width: 80%;
+            height: 100%;
+        }
+
+        table {
+            table-layout: fixed;
+            overflow: hidden;
+        }
+        
+        th {
+            height: 2.5rem;
+        }
+    </style>
+</head>
+<body>
+    <form id='arrival-create-form' method='POST' action='/arrival_create.php' class='center'>
+        <table id='arrival-create-table' class='center'>
+            <thead>
+                <caption><span style='font-size: 1.5rem;'>Arrival Create</span></caption>
+            </thead>
+            <tbody id="tableBody">
+                <tr>
+                    <th colspan='4'>Merchant ID</th>
+                    <td colspan='4'><input required type='number' id='arrival-merchant' name='arrival_merchant_id' value='1'></td>
+                </tr>              
+                <tr id='arrival-line0' class="tableRow">
+                    <th colspan='1'>SKU ID</th>
+                    <td colspan='2'><input required type='number' id='arrival-sku-id0' class= 'arrival-sku-id' name='arrival_sku_id0' value='' style='width: 15ch;'></td>
+                    <th colspan='1'>QTY</th>
+                    <td colspan='2'><input required type='number' id='arrival-qty0' class='arrival-qty' name='arrival_qty0' value='' style='width: 10ch;'></td>
+                    <td colspan='2'><button id='clone0' class ='cloneBtn' type='button'>Clone</button><button id='delete0' class ='deleteBtn' type='button'>Delete</button><button id="add0" type='button' class="addBtn">Add</button><button id='split${lastRow - 2}' class ='splitBtn' type='button'>Split</button></td>
+                </tr>
+                <tr id='arrival-line1' class="tableRow">
+                    <th colspan='1'>SKU ID</th>
+                    <td colspan='2'><input required type='number' id='arrival-sku-id1' class= 'arrival-sku-id' name='arrival_sku_id1' value='' style='width: 15ch;'></td>
+                    <th colspan='1'>QTY</th>
+                    <td colspan='2'><input required type='number' id='arrival-qty1' class='arrival-qty' name='arrival_qty1' value='' style='width: 10ch;'></td>
+                    <td colspan='2'><button id='clone1' class ='cloneBtn' type='button'>Clone</button><button id='delete1' class ='deleteBtn' type='button'>Delete</button><button id="add1" type='button' class="addBtn">Add</button><button id='split${lastRow - 2}' class ='splitBtn' type='button'>Split</button></td>
+                </tr>
+                <tr id='arrival-line2' class="tableRow">
+                    <th colspan='1'>SKU ID</th>
+                    <td colspan='2'><input required type='number' id='arrival-sku-id2'class= 'arrival-sku-id' name='arrival_sku_id2' value='' style='width: 15ch;'></td>
+                    <th colspan='1'>QTY</th>
+                    <td colspan='2'><input required type='number' id='arrival-qty2' class='arrival-qty' name='arrival_qty2' value='' style='width: 10ch;'></td>
+                    <td colspan='2'><button id='clone2' class ='cloneBtn' type='button'>Clone</button><button id='delete2' class ='deleteBtn' type='button'>Delete</button><button id="add2" type='button' class="addBtn">Add</button><button id='split${lastRow - 2}' class ='splitBtn' type='button'>Split</button></td>
+                </tr>
+            </tbody>
+                <tfoot>
+                    <tr id='arrival_create_actions'>
+                        <th colspan='8' style='text-align:center;'>
+                            <button type='submit' id='submit' name='submit' value='create_new_arrival'>Create New Arrival</button>
+                        </th>
+                    </tr>
+                </tfoot>
+        </table>
+    </form>
+    <script src="arrivalCreate.js" type="text/javascript"> </script>
+</body>
+</html>
